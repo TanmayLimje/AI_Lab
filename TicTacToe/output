@@ -1,0 +1,51 @@
+_ | _ | _
+__________
+_ | _ | _
+__________
+_ | _ | _
+Enter a number 1-9: 2
+
+_ | X | _
+__________
+_ | _ | _
+__________
+_ | _ | _
+Enter a number 1-9: 4
+
+_ | X | _
+__________
+O | _ | _
+__________
+_ | _ | _
+Enter a number 1-9: 1
+
+X | X | _
+__________
+O | _ | _
+__________
+_ | _ | _
+Enter a number 1-9: 3
+
+X | X | O
+__________
+O | _ | _
+__________
+_ | _ | _
+Enter a number 1-9: 5
+
+X | X | O
+__________
+O | X | _
+__________
+_ | _ | _
+Enter a number 1-9: 7
+
+X | X | O
+__________
+O | X | _
+__________
+O | _ | _
+Enter a number 1-9: 8
+Winner is X
+
+Process finished with exit code 0
