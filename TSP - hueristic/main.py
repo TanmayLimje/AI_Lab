@@ -44,6 +44,19 @@ def plot_graph_step (G, tour, current_node, pos):
 
     plt.pause(0.5)
 
+def plot_graph(G, tour, pos):
+    nx.draw(G, pos, with_labels=True, node_color='lightblue', node_size=500)
+    path_edges = list((zip(tour, tour[1:])))
+    nx.draw_networkx_edges(G, pos, edgelist=path_edges, edge_color='red', width=2)
+
+    nx.draw_networkx_nodes(G, pos, node_color='green', node_size=500)
+
+    edge_label = nx.get_edge_attributes(G, 'weight')
+    nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_label)
+
+    plt.pause(0.5)
+    plt.show()
+
 # save cost value
 def calculate_tour_cost(G,tour):
         return sum(G[tour[i]][tour[i+1]]['weight'] for i in range(len(tour)-1))
@@ -93,9 +106,31 @@ def nearest_neighbour_tsp(G,start_node = None):
     print("tour cost:", tour_cost)
 
     plt.ioff()
-    plt.show()
+    plt.close()
+
+    return tour, tour_cost
 
 if __name__ == '__main__':
-    G = generate_complete_graph(4)
 
-    nearest_neighbour_tsp(G, start_node=0)
+    n = int(input("enter no of nodes:"))
+    G = generate_complete_graph(n)
+
+    tour_total = []
+
+    for i in range (0,n):
+        path, cost = nearest_neighbour_tsp(G, start_node=i)
+        tour_total.append({'path':path, 'cost':cost})
+
+    
+    min = 999999
+    index = -1
+
+    for i in range(0, len(tour_total)):
+        if tour_total[i]['cost'] < min:
+            min = tour_total[i]['cost']
+            index = i
+
+    print("min cost:", min)
+    print(tour_total[index]['path'])
+    pos = nx.spring_layout(G)
+    plot_graph(G, tour_total[index]['path'], pos)
