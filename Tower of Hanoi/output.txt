@@ -1,0 +1,41 @@
+Initial state:
+A: 1 2 3 
+C: 
+B: 
+-------
+Steps:
+Move disk 1from Ato B
+A: 2 3 
+C: 
+B: 1 
+-------
+Move disk 2 from Ato C
+A: 3 
+B: 1 
+C: 2 
+-------
+Move disk 1from Bto C
+B: 
+A: 3 
+C: 1 2 
+-------
+Move disk 3 from Ato B
+A: 
+C: 1 2 
+B: 3 
+-------
+Move disk 1from Cto A
+C: 2 
+B: 3 
+A: 1 
+-------
+Move disk 2 from Cto B
+C: 
+A: 1 
+B: 2 3 
+-------
+Move disk 1from Ato B
+A: 
+C: 
+B: 1 2 3 
+-------
